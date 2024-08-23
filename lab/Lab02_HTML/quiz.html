@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form - Registration form</title>
+</head>
+<body>
+    <form action="save.php" method="get">
+
+    
+    <label for="name">Name: </label> <input type="text" name="name" id="name" > <br><br>
+
+    <label for="age">Age:</label>
+    <input type="radio" id="age1" name="age" value="18">
+    <label for="age1">>18</label>
+    <input type="radio" id="age2" name="age" value="19-35">
+    <label for="age2">19-35</label>
+    <input type="radio" id="age3" name="age" value="36-48">
+    <label for="age3">36-48</label>
+    <input type="radio" id="age4" name="age" value=">49">
+    <label for="age4">>49</label><br><br>
+
+    <label for="prof">Profession: </label><input type="text" name="prof" id="prof"> <br><br>
+
+    
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+        <option value="Thailand">Thailand</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Hong Kong">Hong Kong</option>
+        <option value="China">China</option> </select><br><br>
+    
+        <label for="interests">Interests:</label>
+        <input type="checkbox" id="interest1" name="interests" value="Photography">
+        <label for="interest1">Photography</label>
+        <input type="checkbox" id="interest2" name="interests" value="Music">
+        <label for="interest2">Music</label>
+        <input type="checkbox" id="interest3" name="interests" value="Cinema">
+        <label for="interest3">Cinema</label>
+        <input type="checkbox" id="interest4" name="interests" value="Computer">
+        <label for="interest4">Computer</label><br><br>
+
+        <label for="how">How did you find about us: </label>
+    <textarea id="how" name="how" rows="3" cols="50" ></textarea>
+    <br> <br>
+
+    <input type="submit" name="submitbtn" id="submitbtn" value="Submit">
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Name-surname</title>
+</head>
+<body>
+    <div align="center">
+    <canvas id="myCanvas" width="450" height="125" style="border:3px solid #2c42c0;"></canvas>
+    </div>
+    
+    <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "50px Georgia";
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'red';
+    ctx.strokeText("Jinnaphat Phansri",20,75);
+    </script>
+</body>
+</html>
