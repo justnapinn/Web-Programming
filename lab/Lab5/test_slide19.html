@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        
+        function ChangeText(){
+            if (document.getElementById("p1").innerHTML === ("Hello world!")){
+                document.getElementById("p1").innerHTML="New text!";}
+            
+            else {
+                document.getElementById("p1").innerHTML="Hello world!";}
+            }
+        </script>
+        </head>
+        <body>
+
+        <p id="p1">Hello world!</p>    
+        <input type="button" onclick="ChangeText()" value="Change text" />
+        
+        <script type="text/javascript">
+            alert(document.getElementById("p1").innerHTML)
+        </script>
+    
+        </body>
+</html>
