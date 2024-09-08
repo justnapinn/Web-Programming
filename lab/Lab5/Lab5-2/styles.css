@@ -1,4 +1,25 @@
 #formAll{
-    border-color: black;
-    
+    margin-top: 100px;
+    margin-left: 200px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+
 }
+
+body {
+    background-image: url('./photoFiles/bg2.jpg');
+    background-size:cover;
+}
+
+h1{
+    color:rgb(255, 0, 0);
+    padding-left: 450px;
+}
+
+h3{
+    color:rgb(173, 94, 147);
+    padding-left: 485px;
+}
+
+
