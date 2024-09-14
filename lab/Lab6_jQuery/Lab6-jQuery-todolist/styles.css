@@ -2,3 +2,22 @@
     text-decoration: line-through;
     color: rgb(58, 212, 66);
 }
+
+#todo {
+    margin-left: 500px;
+    margin-top: 50px;
+    font-size: 25px;
+    width: 300px; /* Set a specific width */
+    height: 200px; /* Set a specific height */
+    padding-left: 100px; /* Adjust the padding for better alignment */
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    
+}
+body {
+    background-color: rgb(21, 32, 43);
+}
+
+#enter::placeholder {
+    color: rgb(255, 255, 255);
+}

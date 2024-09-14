@@ -10,45 +10,79 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-            $("#add").click(function(){
-                $("#todo").append("<li> <b>"+ document.getElementById("enter").value + "</b> </li>")
-            });
-            $("#todo").on("click", "li", function() {
+        $(document).ready(function() {
+
+            loadStorage(); // Load tasks from localStorage
+
+            // Add new task
+            $("#add").click(function(event) {
+                event.preventDefault(); // Prevent form submission and page reload
                 
-                if ($(this).hasClass("completed")) {
-                        $(this).removeClass("completed");  
-                } 
-                else {
-                    $(this).addClass("completed");
+                let addList = document.getElementById("enter").value.trim();
+                if (addList !== "") {  // Prevent empty tasks
+                    $("#todo").append("<li>" + addList + "</li>");
+                    localStorage.setItem(addList, 'incomplete');
+                    document.getElementById("enter").value = ''; // Clear input field
                 }
             });
-            $("#clear").click(function() {
-                $("#todo .completed").remove();  
-            });
-        })
-    </script>
-        
-    <script>
-        // Set Item
-        
-    </script>
 
-    
+            // Mark task as complete/incomplete
+            $("#todo").on("click", "li", function() {
+                let doList = $(this).text();
+                
+                if ($(this).hasClass("completed")) {
+                    $(this).removeClass("completed");
+                    localStorage.setItem(doList, 'incomplete');
+                } else {
+                    $(this).addClass("completed");
+                    localStorage.setItem(doList, 'complete');
+                }
+            });
+
+            // Clear completed tasks
+            $("#clear").click(function() {
+                $("#todo .completed").each(function() {
+                    let clearList = $(this).text();
+                    localStorage.removeItem(clearList); // Remove from localStorage
+                    $(this).remove();
+                });
+            });
+
+        });
+
+        // Load tasks from localStorage
+        function loadStorage() {
+            
+            for (let i = 0; i < localStorage.length; i++) {
+                let task = localStorage.key(i);
+                let status = localStorage.getItem(task);
+
+                if (status === "incomplete") {
+                    $("#todo").append("<li>" + task + "</li>");
+                } else if (status === "complete") {
+                    $("#todo").append("<li class='completed'>" + task + "</li>");
+                }
+            }
+        }
+
+    </script>
 
 </head>
 <body>
     <div class="container">
-    <form action="#">
-        <input id="enter" type="text" placeholder="Enter a task" style="margin-left:350px ;">
-        <button id="add">Add</button>
-        <button id="clear">Clear Completed</button><br>
-        <ol id="todo">
-        
-        </ol>
-    </form>
+        <form action="#">
+            <input id="enter" type="text" placeholder="Enter a task" 
+            style="margin-left:400px; margin-top: 55px; padding-left: 205px; 
+            background-color: rgb(34, 48, 60); color: white; border: 1px solid white; 
+            border-radius: 25px; width: 500px; height: 45px;">
+            <br>
+            <br>
+            <button id="add" style="padding-left: 12px;  width: 150px; margin-left: 490px;">Add</button>
+            <button id="clear" style="padding-left: 12px;  width: 150px; margin-left: 15px;">Clear Completed</button><br>
+            <ol id="todo">
+
+            </ol>
+        </form>
     </div>
-    
-    
 </body>
 </html>
