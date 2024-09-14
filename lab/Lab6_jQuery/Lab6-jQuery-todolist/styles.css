@@ -15,9 +15,10 @@
     
 }
 body {
-    background-color: rgb(21, 32, 43);
+    background-color: rgb(25, 39, 52);
 }
 
 #enter::placeholder {
     color: rgb(255, 255, 255);
 }
+

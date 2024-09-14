@@ -10,62 +10,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-
-            loadStorage(); // Load tasks from localStorage
-
-            // Add new task
-            $("#add").click(function(event) {
-                event.preventDefault(); // Prevent form submission and page reload
-                
-                let addList = document.getElementById("enter").value.trim();
-                if (addList !== "") {  // Prevent empty tasks
-                    $("#todo").append("<li>" + addList + "</li>");
-                    localStorage.setItem(addList, 'incomplete');
+        $(document).ready(function(){
+            // Load tasks from localStorage and sort them
+            loadTasks();
+    
+            $("#add").click(function(){
+                let taskText = document.getElementById("enter").value.trim();
+                if (taskText) {
+                    let timestamp = new Date().getTime(); // Current time in milliseconds
+                    $("#todo").append("<li data-timestamp='" + timestamp + "'>" + taskText + "</li>");
+                    localStorage.setItem(timestamp, taskText + '|' + 'incomplete');
                     document.getElementById("enter").value = ''; // Clear input field
                 }
             });
-
-            // Mark task as complete/incomplete
+    
             $("#todo").on("click", "li", function() {
-                let doList = $(this).text();
-                
+                let timestamp = $(this).data('timestamp');
+                let text = $(this).text().split('|')[0];
                 if ($(this).hasClass("completed")) {
                     $(this).removeClass("completed");
-                    localStorage.setItem(doList, 'incomplete');
+                    localStorage.setItem(timestamp, text + '|' + 'incomplete');
                 } else {
                     $(this).addClass("completed");
-                    localStorage.setItem(doList, 'complete');
+                    localStorage.setItem(timestamp, text + '|' + 'complete');
                 }
             });
-
-            // Clear completed tasks
-            $("#clear").click(function() {
-                $("#todo .completed").each(function() {
-                    let clearList = $(this).text();
-                    localStorage.removeItem(clearList); // Remove from localStorage
+    
+            $("#clear").click(function () {
+                $("#todo .completed").each(function () {
+                    let timestamp = $(this).data('timestamp');
+                    localStorage.removeItem(timestamp); // Remove from localStorage
                     $(this).remove();
                 });
             });
-
+    
         });
-
+    
         // Load tasks from localStorage
-        function loadStorage() {
-            
-            for (let i = 0; i < localStorage.length; i++) {
-                let task = localStorage.key(i);
-                let status = localStorage.getItem(task);
-
-                if (status === "incomplete") {
-                    $("#todo").append("<li>" + task + "</li>");
-                } else if (status === "complete") {
-                    $("#todo").append("<li class='completed'>" + task + "</li>");
+        function loadTasks() {
+            let keys = Object.keys(localStorage);
+            keys.sort((a, b) => a - b); // Sort keys numerically (timestamps)
+            keys.forEach(function(key) {
+                let item = localStorage.getItem(key);
+                if (item) {
+                    let [text, status] = item.split('|');
+                    let className = status === 'complete' ? 'completed' : '';
+                    $("#todo").append("<li data-timestamp='" + key + "' class='" + className + "'>" + text + "</li>");
                 }
-            }
+            });
         }
-
     </script>
+    
 
 </head>
 <body>
