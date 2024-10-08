@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+    <h2>The Fetch API</h2>
+    <button type="button" onclick="loadContent()">Show Content</button>
+</div>
+
+<script>
+function loadContent() {
+    // Use the Fetch API to get the content from info.txt
+    fetch('info.txt')
+        .then(response => {
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.status);
+            }
+            return response.text(); // Parse the response as text
+        })
+        .then(data => {
+            // Update the HTML with the fetched content
+            document.getElementById("demo").innerHTML = data;
+        })
+        .catch(error => {
+            // Handle errors
+            document.getElementById("demo").innerHTML = "Error: " + error.message;
+        });
+}
+</script>
+</body>
+</html>

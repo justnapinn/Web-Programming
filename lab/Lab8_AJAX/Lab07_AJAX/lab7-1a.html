@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadXMLDoc()">Show Content</button>
+</div>
+<script>
+    function loadXMLDoc() {
+        var xhttp;
+    
+        // Check for modern browsers and IE
+        if (window.XMLHttpRequest) {
+            // Modern browsers
+            xhttp = new XMLHttpRequest();
+        } else {
+            // Older IE versions
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                } else {
+                    // Handle errors
+                    document.getElementById("demo").innerHTML = "Error: " + this.status;
+                }
+            }
+        };
+    
+        xhttp.open("GET", "info.txt", true);
+        xhttp.send();
+    }
+    </script>
+</body>
+</html>
