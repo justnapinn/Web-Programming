@@ -1,0 +1,52 @@
+[
+    {
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "johndoe@example.com",
+        "address": {
+            "street": "123 Main St",
+            "city": "New York",
+            "zipcode": "10001"
+        }
+    },
+    {
+        "name": "Jane Smith",
+        "username": "janesmith",
+        "email": "janesmith@example.com",
+        "address": {
+            "street": "456 Elm St",
+            "city": "Los Angeles",
+            "zipcode": "90001"
+        }
+    },
+    {
+        "name": "Michael Brown",
+        "username": "michaelbrown",
+        "email": "michaelbrown@example.com",
+        "address": {
+            "street": "789 Oak St",
+            "city": "Chicago",
+            "zipcode": "60601"
+        }
+    },
+    {
+        "name": "Emily Johnson",
+        "username": "emilyjohnson",
+        "email": "emilyjohnson@example.com",
+        "address": {
+            "street": "101 Pine St",
+            "city": "Houston",
+            "zipcode": "77001"
+        }
+    },
+    {
+        "name": "David Wilson",
+        "username": "davidwilson",
+        "email": "davidwilson@example.com",
+        "address": {
+            "street": "202 Cedar St",
+            "city": "Phoenix",
+            "zipcode": "85001"
+        }
+    }
+]

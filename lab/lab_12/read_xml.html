@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const parser = new DOMParser();
+
+        const xmlString = `<bookstore><book><title>Learning JavaScript</title><author>Jinnaphat Phansri</author></book></bookstore>`;
+
+        const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+        console.log(xmlDoc.getElementsByTagName("title")[0].textContent); // Output: Learning JavaScript
+
+        document.write(xmlDoc.getElementsByTagName("title")[0].textContent)
+        document.write(xmlDoc.getElementsByTagName("author")[0].textContent)
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

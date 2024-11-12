@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .error {
+            color: #FF0000;
+        }
+    </style>
+    <title>Lab 10 - Form Validation</title>
+</head>
+<body>
+    <h2>PHP Form Validation Example</h2>
+    <p><span class="error">* required field</span></p>
+    <form method="post" action="/66102010576/Lab10/validate.php">
+        Name: <label>
+            <input type="text" name="name" value="">
+        </label>
+        <span class="error">* </span>
+        <br><br>
+    
+        E-mail: <label>
+            <input type="text" name="email" value="">
+        </label>
+        <span class="error">* </span>
+        <br><br>
+    
+        Website: <label>
+            <input type="text" name="website" value="">
+        </label>
+        <span class="error"></span>
+        <br><br>
+    
+        Comment: <label>
+            <textarea name="comment" rows="2" cols="40"></textarea>
+        </label>
+        <br><br>
+        
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>
